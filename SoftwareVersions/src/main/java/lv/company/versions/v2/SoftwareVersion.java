@@ -12,9 +12,6 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
     private final String version;
 
     public SoftwareVersion(String version) {
-        if (version == null) {
-            throw new IllegalArgumentException("Version cannot be null");
-        }
         this.version = version;
     }
 
@@ -59,6 +56,10 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
     }
 
     private void validate() {
+        if (version == null) {
+            throw new IllegalArgumentException("Version cannot be null");
+        }
+
         if (!version.matches("(\\d+(?:\\.\\d+)+|\\d+)")) {
             throw new IllegalArgumentException("Version [" + version + "] format is not valid");
         }
