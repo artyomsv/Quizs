@@ -52,7 +52,7 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
                 return comparisonValue;
             }
         }
-        return 0;
+        return EQUALS;
     }
 
     private void validate() {
