@@ -1,6 +1,6 @@
-package lv.company.expenses.domain.opeartions;
+package lv.company.expenses.v1.domain.opeartions;
 
-import lv.company.expenses.domain.Person;
+import lv.company.expenses.v1.domain.Person;
 
 public class Expense {
 

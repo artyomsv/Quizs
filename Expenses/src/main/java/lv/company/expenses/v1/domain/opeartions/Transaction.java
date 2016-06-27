@@ -1,6 +1,6 @@
-package lv.company.expenses.domain.opeartions;
+package lv.company.expenses.v1.domain.opeartions;
 
-import lv.company.expenses.domain.Person;
+import lv.company.expenses.v1.domain.Person;
 
 public class Transaction {
 
@@ -36,9 +36,8 @@ public class Transaction {
 
         if (from != null ? !from.equals(that.from) : that.from != null) return false;
         if (to != null ? !to.equals(that.to) : that.to != null) return false;
-        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
+        return amount != null ? amount.equals(that.amount) : that.amount == null;
 
-        return true;
     }
 
     @Override

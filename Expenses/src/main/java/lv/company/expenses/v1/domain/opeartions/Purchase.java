@@ -1,7 +1,7 @@
-package lv.company.expenses.domain.opeartions;
+package lv.company.expenses.v1.domain.opeartions;
 
-import lv.company.expenses.domain.Person;
-import lv.company.expenses.domain.Product;
+import lv.company.expenses.v1.domain.Person;
+import lv.company.expenses.v1.domain.Product;
 
 public class Purchase {
 

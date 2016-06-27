@@ -1,4 +1,4 @@
-package lv.company.expenses.domain;
+package lv.company.expenses.v1.domain;
 
 public class Person {
 

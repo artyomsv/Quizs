@@ -1,4 +1,4 @@
-package lv.company.expenses.domain.opeartions;
+package lv.company.expenses.v1.domain.opeartions;
 
 public class CompensatedExpense extends Expense {
 
