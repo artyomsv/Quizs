@@ -26,7 +26,7 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
     private int compare(StringTokenizer leftTokenizer, StringTokenizer rightTokenizer) {
         if (leftTokenizer.hasMoreElements() && rightTokenizer.hasMoreElements()) {
 
-            int result = getTokensSignum(leftTokenizer, rightTokenizer);
+            int result = new Signum(leftTokenizer.nextToken(), rightTokenizer.nextToken()).signum();
 
             if (result != EQUALS) {
                 return result;
@@ -38,12 +38,6 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
         }
 
         return compare(leftTokenizer, rightTokenizer);
-    }
-
-    private int getTokensSignum(StringTokenizer leftTokenizer, StringTokenizer rightTokenizer) {
-        StringAsInteger leftValue = new StringAsInteger(leftTokenizer.nextToken());
-        StringAsInteger rightValue = new StringAsInteger(rightTokenizer.nextToken());
-        return Integer.signum(leftValue.toInt() - rightValue.toInt());
     }
 
     private int checkLastDigits(StringTokenizer tokenizer, int comparisonValue) {
