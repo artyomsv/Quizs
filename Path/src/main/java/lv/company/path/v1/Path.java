@@ -2,29 +2,14 @@ package lv.company.path.v1;
 
 public class Path {
 
-    public static void main(String[] args) {
-//        byte[][] array = new byte[][]{
-//                {1, 0, 0, 0, 0},
-//                {1, 0, 1, 1, 1},
-//                {1, 1, 1, 0, 1},
-//                {0, 0, 0, 0, 1}
-//
-//        };
-
-        byte[][] array = new byte[][]{
-                {1, 1, 1, 1, 1},
-                {1, 0, 0, 0, 1},
-                {1, 1, 1, 1, 1},
-                {0, 1, 0, 1, 1}
-
-        };
-        long value = calculate(array, 0, 0, 0);
-        System.out.println(value);
+    public static int calculate(byte[][] array) {
+        return calculate(array, 0, 0, 0);
     }
+
 
     private static int calculate(byte[][] array, int n, int m, int possibleWaysCount) {
         if (array == null) {
-            return 0;
+            throw new IllegalArgumentException("Input data is null");
         }
 
         if (outOfArrayBorders(array, n, m) || blockedByZero(array[n][m])) {
