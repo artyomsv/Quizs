@@ -12,6 +12,7 @@
     <modules>
         <module>Expenses</module>
         <module>SoftwareVersions</module>
+        <module>Path</module>
     </modules>
 
     <dependencyManagement>
