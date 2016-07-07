@@ -13,6 +13,7 @@
         <module>Expenses</module>
         <module>SoftwareVersions</module>
         <module>Path</module>
+        <module>Morse</module>
     </modules>
 
     <dependencyManagement>
