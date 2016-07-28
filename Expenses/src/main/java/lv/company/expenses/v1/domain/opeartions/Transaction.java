@@ -1,7 +1,9 @@
 package lv.company.expenses.v1.domain.opeartions;
 
+import lombok.EqualsAndHashCode;
 import lv.company.expenses.v1.domain.Person;
 
+@EqualsAndHashCode
 public class Transaction {
 
     private final Person from;
@@ -24,28 +26,6 @@ public class Transaction {
 
     public Long getAmount() {
         return amount;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Transaction that = (Transaction) o;
-
-        if (from != null ? !from.equals(that.from) : that.from != null) return false;
-        if (to != null ? !to.equals(that.to) : that.to != null) return false;
-        return amount != null ? amount.equals(that.amount) : that.amount == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = from != null ? from.hashCode() : 0;
-        result = 31 * result + (to != null ? to.hashCode() : 0);
-        result = 31 * result + (amount != null ? amount.hashCode() : 0);
-        return result;
     }
 
     @Override

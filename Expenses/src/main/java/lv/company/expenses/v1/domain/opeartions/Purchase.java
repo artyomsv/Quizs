@@ -1,8 +1,12 @@
 package lv.company.expenses.v1.domain.opeartions;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lv.company.expenses.v1.domain.Person;
 import lv.company.expenses.v1.domain.Product;
 
+@EqualsAndHashCode
+@ToString
 public class Purchase {
 
     private final Person person;
@@ -20,25 +24,5 @@ public class Purchase {
     public Product getProduct() {
         return product;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Purchase operation = (Purchase) o;
-
-        if (person != null ? !person.equals(operation.person) : operation.person != null) return false;
-        return product != null ? product.equals(operation.product) : operation.product == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = person != null ? person.hashCode() : 0;
-        result = 31 * result + (product != null ? product.hashCode() : 0);
-        return result;
-    }
-
 
 }

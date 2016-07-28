@@ -1,5 +1,7 @@
 package lv.company.expenses.v1.domain.opeartions;
 
+import lv.company.expenses.v1.Compensation;
+
 public class CompensatedExpense extends Expense {
 
     private long refunded;
@@ -13,8 +15,8 @@ public class CompensatedExpense extends Expense {
         return refunded;
     }
 
-    public void incrementRefunded(long refunded) {
-        this.refunded += refunded;
+    public void incrementRefunded(Compensation refunded) {
+        this.refunded += refunded.toLong();
     }
 
     public boolean isFullyRefunded() {

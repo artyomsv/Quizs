@@ -1,8 +1,11 @@
 package lv.company.expenses.v1.domain.opeartions;
 
+import lombok.EqualsAndHashCode;
+import lv.company.expenses.v1.LongNumber;
 import lv.company.expenses.v1.domain.Person;
 
-public class Expense {
+@EqualsAndHashCode
+public class Expense implements LongNumber {
 
     private final Person person;
     private final long amount;
@@ -25,21 +28,7 @@ public class Expense {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Expense expanse = (Expense) o;
-
-        if (amount != expanse.amount) return false;
-        return person != null ? person.equals(expanse.person) : expanse.person == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = person != null ? person.hashCode() : 0;
-        result = 31 * result + (int) (amount ^ (amount >>> 32));
-        return result;
+    public long toLong() {
+        return amount;
     }
 }
