@@ -9,31 +9,35 @@ public class SoftwareVersionTest {
 
     @Test
     public void secondHigerThenFirst() throws Exception {
-        assertThat(new SoftwareVersion("1").compareTo(new SoftwareVersion("1.1.0")), is(-1));
+        assertThat(wrap(new SoftwareVersion("1")).compareTo(wrap(new SoftwareVersion("1.1.0"))), is(-1));
     }
 
     @Test
     public void equalVersions() throws Exception {
-        assertThat(new SoftwareVersion("1").compareTo(new SoftwareVersion("1.0")), is(0));
+        assertThat(wrap(new SoftwareVersion("1")).compareTo(wrap(new SoftwareVersion("1.0"))), is(0));
     }
 
     @Test
     public void firstHihgerThenSecond() throws Exception {
-        assertThat(new SoftwareVersion("1.2.5").compareTo(new SoftwareVersion("1.2.4")), is(1));
+        assertThat(wrap(new SoftwareVersion("1.2.5")).compareTo(wrap(new SoftwareVersion("1.2.4"))), is(1));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void oneOfTheVersionsIsNull() throws Exception {
-        new SoftwareVersion(null).compareTo(new SoftwareVersion("1.1"));
+        wrap(new SoftwareVersion(null)).compareTo(wrap(new SoftwareVersion("1.1")));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void wrongFormat() throws Exception {
-        new SoftwareVersion("1.1").compareTo(new SoftwareVersion("1."));
+        wrap(new SoftwareVersion("1.1")).compareTo(wrap(new SoftwareVersion("1.")));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void containLetters() throws Exception {
-        new SoftwareVersion("2.1.a").compareTo(new SoftwareVersion("3"));
+        wrap(new SoftwareVersion("2.1.a")).compareTo(wrap(new SoftwareVersion("3")));
+    }
+
+    private Version wrap(Version version) {
+        return new NotNullableVersion(new NumericVersion(version));
     }
 }

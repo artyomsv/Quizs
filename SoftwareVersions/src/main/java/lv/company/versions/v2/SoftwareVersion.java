@@ -2,7 +2,7 @@ package lv.company.versions.v2;
 
 import java.util.StringTokenizer;
 
-public class SoftwareVersion implements Comparable<SoftwareVersion> {
+public class SoftwareVersion implements Version {
 
     private static final String ZERO = "0";
     private static final int EQUALS = 0;
@@ -16,11 +16,8 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
     }
 
     @Override
-    public int compareTo(SoftwareVersion o) {
-        this.validate();
-        o.validate();
-
-        return compare(new StringTokenizer(this.version, "."), new StringTokenizer(o.version, "."));
+    public int compareTo(Version o) {
+        return compare(new StringTokenizer(this.version, "."), new StringTokenizer(o.version(), "."));
     }
 
     private int compare(StringTokenizer leftTokenizer, StringTokenizer rightTokenizer) {
@@ -49,13 +46,8 @@ public class SoftwareVersion implements Comparable<SoftwareVersion> {
         return EQUALS;
     }
 
-    private void validate() {
-        if (version == null) {
-            throw new IllegalArgumentException("Version cannot be null");
-        }
-
-        if (!version.matches("(\\d+(?:\\.\\d+)+|\\d+)")) {
-            throw new IllegalArgumentException("Version [" + version + "] format is not valid");
-        }
+    @Override
+    public String version() {
+        return version;
     }
 }
