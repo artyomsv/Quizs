@@ -6,13 +6,7 @@ import lv.company.expenses.v1.domain.opeartions.Expense;
 import lv.company.expenses.v1.domain.opeartions.Purchase;
 import lv.company.expenses.v1.domain.opeartions.Transaction;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -30,10 +24,6 @@ public class TransactionsServiceImpl implements TransactionsService {
         Collections.sort(expanses, getAmountComparator());
 
         Long personAverageSum = getAverage(expanses);
-        if (personAverageSum == -1L) {
-            throw new IllegalArgumentException("Failed to determine average person sum");
-        }
-
 
         int index = findBorderIndex(expanses, personAverageSum);
         if (index == -1) {
@@ -79,7 +69,7 @@ public class TransactionsServiceImpl implements TransactionsService {
         if (average.isPresent()) {
             personAverageSum = (long) average.getAsDouble();
         } else {
-            personAverageSum = -1L;
+            throw new IllegalArgumentException("Failed to determine average person sum");
         }
         return personAverageSum;
     }
