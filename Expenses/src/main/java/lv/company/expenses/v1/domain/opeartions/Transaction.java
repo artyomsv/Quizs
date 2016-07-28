@@ -30,6 +30,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return from.getName() + " -> " + to.getName() + ": " + (amount) + "$";
+        return from.name() + " -> " + to.name() + ": " + (amount) + "$";
     }
 }

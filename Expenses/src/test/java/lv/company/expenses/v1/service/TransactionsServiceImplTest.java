@@ -37,18 +37,18 @@ public class TransactionsServiceImplTest {
 
         assertThat(result.size(), is(2));
 
-        Collections.sort(result, (o1, o2) -> o1.getFrom().getName().compareTo(o2.getFrom().getName()));
+        Collections.sort(result, (o1, o2) -> o1.getFrom().name().compareTo(o2.getFrom().name()));
 
         Iterator<Transaction> iterator = result.iterator();
 
         Transaction hansTransaction = iterator.next();
-        assertThat(hansTransaction.getFrom().getName(), is("Hans"));
-        assertThat(hansTransaction.getTo().getName(), is("Lisa"));
+        assertThat(hansTransaction.getFrom().name(), is("Hans"));
+        assertThat(hansTransaction.getTo().name(), is("Lisa"));
         assertThat(hansTransaction.getAmount(), is(2600L));
 
         Transaction ivanTransaction = iterator.next();
-        assertThat(ivanTransaction.getFrom().getName(), is("Ivan"));
-        assertThat(ivanTransaction.getTo().getName(), is("Lisa"));
+        assertThat(ivanTransaction.getFrom().name(), is("Ivan"));
+        assertThat(ivanTransaction.getTo().name(), is("Lisa"));
         assertThat(ivanTransaction.getAmount(), is(1900L));
 
     }
@@ -71,18 +71,18 @@ public class TransactionsServiceImplTest {
         Iterator<Transaction> iterator = result.iterator();
 
         Transaction petrTransaction = iterator.next();
-        assertThat(petrTransaction.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction.getTo().getName(), is("Lisa"));
+        assertThat(petrTransaction.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction.getTo().name(), is("Lisa"));
         assertThat(petrTransaction.getAmount(), is(4L));
 
         Transaction petrTransaction2 = iterator.next();
-        assertThat(petrTransaction2.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction2.getTo().getName(), is("Hans"));
+        assertThat(petrTransaction2.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction2.getTo().name(), is("Hans"));
         assertThat(petrTransaction2.getAmount(), is(1L));
 
         Transaction ivanTransaction = iterator.next();
-        assertThat(ivanTransaction.getFrom().getName(), is("Ivan"));
-        assertThat(ivanTransaction.getTo().getName(), is("Hans"));
+        assertThat(ivanTransaction.getFrom().name(), is("Ivan"));
+        assertThat(ivanTransaction.getTo().name(), is("Hans"));
         assertThat(ivanTransaction.getAmount(), is(3L));
 
     }
@@ -105,18 +105,18 @@ public class TransactionsServiceImplTest {
         Iterator<Transaction> iterator = result.iterator();
 
         Transaction petrTransaction = iterator.next();
-        assertThat(petrTransaction.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction.getTo().getName(), is("Lisa"));
+        assertThat(petrTransaction.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction.getTo().name(), is("Lisa"));
         assertThat(petrTransaction.getAmount(), is(4L));
 
         Transaction petrTransaction2 = iterator.next();
-        assertThat(petrTransaction2.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction2.getTo().getName(), is("Hans"));
+        assertThat(petrTransaction2.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction2.getTo().name(), is("Hans"));
         assertThat(petrTransaction2.getAmount(), is(1L));
 
         Transaction ivanTransaction = iterator.next();
-        assertThat(ivanTransaction.getFrom().getName(), is("Ivan"));
-        assertThat(ivanTransaction.getTo().getName(), is("Hans"));
+        assertThat(ivanTransaction.getFrom().name(), is("Ivan"));
+        assertThat(ivanTransaction.getTo().name(), is("Hans"));
         assertThat(ivanTransaction.getAmount(), is(1L));
 
     }
@@ -139,13 +139,13 @@ public class TransactionsServiceImplTest {
         Iterator<Transaction> iterator = result.iterator();
 
         Transaction petrTransaction = iterator.next();
-        assertThat(petrTransaction.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction.getTo().getName(), is("Lisa"));
+        assertThat(petrTransaction.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction.getTo().name(), is("Lisa"));
         assertThat(petrTransaction.getAmount(), is(4L));
 
         Transaction petrTransaction2 = iterator.next();
-        assertThat(petrTransaction2.getFrom().getName(), is("Petr"));
-        assertThat(petrTransaction2.getTo().getName(), is("Hans"));
+        assertThat(petrTransaction2.getFrom().name(), is("Petr"));
+        assertThat(petrTransaction2.getTo().name(), is("Hans"));
         assertThat(petrTransaction2.getAmount(), is(1L));
 
     }
