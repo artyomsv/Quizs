@@ -19,6 +19,7 @@
         <module>Path</module>
         <module>Morse</module>
         <module>Roadmap</module>
+        <module>Certification</module>
     </modules>
 
     <dependencyManagement>
